@@ -30,6 +30,8 @@ jobs:
         continue-on-error: true
   security:
     runs-on: ubuntu-latest
+    if: ${{ always() }}
+    needs: [linter]
 
     steps:
       - name: 📥 Checkout repository
