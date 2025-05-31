@@ -7,9 +7,15 @@ on:
     branches: [main]
 
 jobs:
+  Prueba Listado:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Comando
+        run: ls -la
+        continue-on-error: true
   linter:
     runs-on: ubuntu-latest
-
+        
     steps:
       - name: 📥 Checkout repository
         uses: actions/checkout@v3
@@ -28,8 +34,7 @@ jobs:
       - name: 🧹 Run linter (flake8)
         run: flake8 app/ tests/
         continue-on-error: true
-      - name: Comando Prueba Listado
-        run: ls -la
+      
 
   security:
     runs-on: ubuntu-latest
