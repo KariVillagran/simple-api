@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Comando
         run: ls -la
-        continue-on-error: true
+
   linter:
     runs-on: ubuntu-latest
         
