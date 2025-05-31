@@ -110,7 +110,10 @@ jobs:
 
   listar-Yasna:
     runs-on: ubuntu-latest
-    
+
     steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v3
+
       - name: Listar directorio
         run: ls -la
