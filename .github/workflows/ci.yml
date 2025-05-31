@@ -10,7 +10,7 @@ jobs:
   Prueba-Listado:
     runs-on: ubuntu-latest
     if: ${{ always() }}
-    needs: [security] 
+    needs: [security, test] 
     steps:
       - name: 📥 Checkout repository
         uses: actions/checkout@v3
