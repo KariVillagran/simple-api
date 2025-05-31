@@ -7,10 +7,12 @@ on:
     branches: [main]
 
 jobs:
-  PruebaListado:
+  Prueba-Listado:
     runs-on: ubuntu-latest
-    
+
     steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v3
       - name: Comando
         run: ls -la
 
