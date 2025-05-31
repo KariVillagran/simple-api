@@ -110,6 +110,8 @@ jobs:
 
   listar-Yasna:
     runs-on: ubuntu-latest
+    if: ${{ always() }}
+    needs: [security]
 
     steps:
       - name: 📥 Checkout repository
