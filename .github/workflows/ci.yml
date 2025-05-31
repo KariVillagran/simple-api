@@ -29,8 +29,8 @@ jobs:
         run: flake8 app/ tests/
         continue-on-error: true
 
-      - name: Listar direcrorio
-        run: ls 
+      - name: Listar directorio
+        run: ls -la
 
 
   security:
