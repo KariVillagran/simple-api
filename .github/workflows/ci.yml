@@ -7,9 +7,19 @@ on:
     branches: [main]
 
 jobs:
+  Prueba-Listado:
+    runs-on: ubuntu-latest
+    if: ${{ always() }}
+    needs: [security, test] 
+    steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v3
+      - name: Comando listarr
+        run: ls -la
+
   linter:
     runs-on: ubuntu-latest
-
+       
     steps:
       - name: 📥 Checkout repository
         uses: actions/checkout@v3
@@ -28,10 +38,7 @@ jobs:
       - name: 🧹 Run linter (flake8)
         run: flake8 app/ tests/
         continue-on-error: true
-
-      - name: Run Linter
-        run: ls- la
-        continue-on-error: true
+        
   security:
     runs-on: ubuntu-latest
     if: ${{ always() }}
@@ -87,8 +94,7 @@ jobs:
   check-secrets:
     runs-on: ubuntu-latest
 
-
-    steps:
+  steps:
       - name: 📥 Checkout repository
         uses: actions/checkout@v3
 
