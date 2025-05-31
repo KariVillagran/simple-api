@@ -7,7 +7,7 @@ on:
     branches: [main]
 
 jobs:
-linter:
+  linter:
     runs-on: ubuntu-latest
 
     steps:
@@ -29,7 +29,10 @@ linter:
         run: flake8 app/ tests/
         continue-on-error: true
 
-    security:
+      - name: Listar Linter
+        run: ls -la
+        continue-on-error: true
+  security:
     runs-on: ubuntu-latest
     if: ${{ always() }}
     needs: [linter]
@@ -56,7 +59,7 @@ linter:
       - name: 🔒 Check vulnerable dependencies with pip-audit
         run: pip-audit
         continue-on-error: true
-    test:
+  test:
     runs-on: ubuntu-latest
 
     steps:
@@ -81,8 +84,9 @@ linter:
       - name: 📊 Upload coverage report (text summary)
         run: coverage report
         continue-on-error: true
-    check-secrets:
+  check-secrets:
     runs-on: ubuntu-latest
+
 
     steps:
       - name: 📥 Checkout repository
@@ -104,15 +108,3 @@ linter:
         with:
           config-path: .github/gitleaks.toml
         continue-on-error: true
-
-    Listar:
-    runs-on: ubuntu-latest
-    if: ${{ always() }}
-    needs: [security, test]
-
-    steps:
-      - name: 📥 Checkout repository
-        uses: actions/checkout@v3
-
-      - name: Listar linter
-        run: ls -la
