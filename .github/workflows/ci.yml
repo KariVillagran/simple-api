@@ -9,7 +9,6 @@ on:
 jobs:
   listar:
     runs-on: ubuntu-latest
-    needs: [test]
     steps:
       - name: 📥 Checkout repository
         uses: actions/checkout@v3
@@ -92,7 +91,7 @@ jobs:
         continue-on-error: true
   check-secrets:
     runs-on: ubuntu-latest
-    needs: [check-secrets]
+    needs: test
 
     steps:
       - name: 📥 Checkout repository
