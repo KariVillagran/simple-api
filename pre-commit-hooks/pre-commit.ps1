@@ -16,5 +16,5 @@ if ($CommitMsg -notmatch $Pattern) {
 
 dir
 
-Write-Output "Revisando linter"
+Write-Host "Revisando linter"
 flake8 /app /test
