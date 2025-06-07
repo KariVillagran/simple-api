@@ -108,8 +108,8 @@ jobs:
   listar:
       runs-on: ubuntu-latest
       if: ${{ always() }}
-      needs: [test]
-      
+      needs: [check-secrets]
+
       steps:
         - name: 📥 Checkout repository
           uses: actions/checkout@v3
