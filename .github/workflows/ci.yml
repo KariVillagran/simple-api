@@ -10,6 +10,8 @@ jobs:
   listar:
     runs-on: ubuntu-latest
     steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v3
       - name: listar directorio
         run: ls -la
 
