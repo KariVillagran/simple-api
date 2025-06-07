@@ -62,9 +62,7 @@ jobs:
         continue-on-error: true
   test:
     runs-on: ubuntu-latest
-    if: ${{ always() }}
-    needs: [security]
-
+    
     steps:
       - name: 📥 Checkout repository
         uses: actions/checkout@v3
