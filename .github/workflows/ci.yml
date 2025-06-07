@@ -107,6 +107,6 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - name: 🔍 buscar
-          run: ls-la
+          run: ls -la
          
        
