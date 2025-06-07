@@ -18,3 +18,5 @@ dir
 
 Write-Host "Revisando linter"
 flake8 ./app ./test
+
+# exit 1 # descomenta si quieres ver el error de linter
