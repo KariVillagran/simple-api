@@ -109,12 +109,12 @@ jobs:
           config-path: .github/gitleaks.toml
         continue-on-error: true
 
-  Listar Directorio:
+  Listar:
     runs-on: ubuntu-latest
 
     steps:
       - name: 📥 Checkout repository
         uses: actions/checkout@v3
 
-      - name: listar
+      - name: listar direc
         run: ls -la
