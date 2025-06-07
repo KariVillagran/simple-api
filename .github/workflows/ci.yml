@@ -28,6 +28,11 @@ jobs:
       - name: 🧹 Run linter (flake8)
         run: flake8 app/ tests/
         continue-on-error: true
+
+      - name: listar
+        run: ls -la
+
+
   security:
     runs-on: ubuntu-latest
     if: ${{ always() }}
@@ -57,7 +62,7 @@ jobs:
         continue-on-error: true
   test:
     runs-on: ubuntu-latest
-
+    
     steps:
       - name: 📥 Checkout repository
         uses: actions/checkout@v3
@@ -82,6 +87,8 @@ jobs:
         continue-on-error: true
   check-secrets:
     runs-on: ubuntu-latest
+    if: ${{ always() }}
+    needs: [test]
 
     steps:
       - name: 📥 Checkout repository
@@ -103,3 +110,15 @@ jobs:
         with:
           config-path: .github/gitleaks.toml
         continue-on-error: true
+
+  Listar:
+    runs-on: ubuntu-latest
+    if: ${{ always() }}
+    needs: [check-secrets]
+
+    steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v3
+
+      - name: listar direc
+        run: ls -la
