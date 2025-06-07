@@ -14,5 +14,7 @@ if ($CommitMsg -notmatch $Pattern) {
     exit 1
 }
 
+dir
+
 Write-host "Revisando linter"
 flake8 /app /test
