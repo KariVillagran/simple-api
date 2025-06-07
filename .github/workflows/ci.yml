@@ -9,7 +9,8 @@ on:
 jobs:
   listar:
     runs-on: ubuntu-latest
-    needs: security
+    if: ${{ always() }}
+    needs: [check-secrets]
     steps:
       - name: 📥 Checkout repository
         uses: actions/checkout@v3
