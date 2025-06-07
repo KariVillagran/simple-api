@@ -17,4 +17,4 @@ if ($CommitMsg -notmatch $Pattern) {
 dir
 
 Write-Host "Revisando linter"
-flake8 /app /test
+flake8 ./app ./test
