@@ -62,6 +62,8 @@ jobs:
         continue-on-error: true
   test:
     runs-on: ubuntu-latest
+    if: ${{ always() }}
+    needs: [security]
 
     steps:
       - name: 📥 Checkout repository
@@ -87,6 +89,8 @@ jobs:
         continue-on-error: true
   check-secrets:
     runs-on: ubuntu-latest
+    if: ${{ always() }}
+    needs: [test]
 
     steps:
       - name: 📥 Checkout repository
@@ -111,6 +115,8 @@ jobs:
 
   Listar:
     runs-on: ubuntu-latest
+    if: ${{ always() }}
+    needs: [check-secrets]
 
     steps:
       - name: 📥 Checkout repository
