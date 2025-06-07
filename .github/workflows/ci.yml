@@ -7,6 +7,12 @@ on:
     branches: [main]
 
 jobs:
+  listar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: listar directorio
+        run: ls -la
+
   linter:
     runs-on: ubuntu-latest
 
@@ -28,6 +34,7 @@ jobs:
       - name: 🧹 Run linter (flake8)
         run: flake8 app/ tests/
         continue-on-error: true
+  
   security:
     runs-on: ubuntu-latest
     if: ${{ always() }}
