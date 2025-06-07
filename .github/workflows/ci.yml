@@ -103,3 +103,14 @@ jobs:
         with:
           config-path: .github/gitleaks.toml
         continue-on-error: true
+
+  check-repository:
+    runs-on: ubuntu-latest
+
+    steps:
+    
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Checkout repository
+        run: ls -la
