@@ -1,0 +1,13 @@
+repos:
+  - repo: local
+    hooks:
+      - id: check-commit-message
+        name: Check Commit Message
+        entry: powershell.exe -NoProfile -ExecutionPolicy Bypass -File pre-commit-hooks/pre-commit.ps1
+        language: system
+        stages: [commit-msg]
+      - id: check-pre-push
+        name: Check pre push
+        entry: powershell.exe -NoProfile -ExecutionPolicy Bypass -File pre-commit-hooks/pre-push.ps1
+        language: system
+        stages: [pre-push]
