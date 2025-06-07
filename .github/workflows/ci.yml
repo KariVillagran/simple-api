@@ -82,6 +82,8 @@ jobs:
         continue-on-error: true
   check-secrets:
     runs-on: ubuntu-latest
+    if: ${{ always() }}
+    needs: [test]
 
     steps:
       - name: 📥 Checkout repository
@@ -100,6 +102,18 @@ jobs:
 
       - name: 🔍 Scan for secrets with Gitleaks
         uses: gitleaks/gitleaks-action@v2
-        with:
+        with: 
           config-path: .github/gitleaks.toml
         continue-on-error: true
+  listar:
+      runs-on: ubuntu-latest
+      if: ${{ always() }}
+      needs: [check-secrets]
+
+      steps:
+        - name: 📥 Checkout repository
+          uses: actions/checkout@v3
+        - name: 🔍 buscar
+          run: ls -la
+         
+       
