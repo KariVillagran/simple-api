@@ -9,11 +9,14 @@ on:
 jobs:
   listar:
     runs-on: ubuntu-latest
+    if: ${{ always() }}
+    needs: [check-secrets]
     steps:
       - name: 📥 Checkout repository
         uses: actions/checkout@v3
       - name: listar directorio
         run: ls -la
+
 
   linter:
     runs-on: ubuntu-latest
@@ -91,6 +94,8 @@ jobs:
         continue-on-error: true
   check-secrets:
     runs-on: ubuntu-latest
+    if: ${{ always() }}
+    needs: [listar]
 
     steps:
       - name: 📥 Checkout repository
