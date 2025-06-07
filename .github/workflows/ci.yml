@@ -82,6 +82,8 @@ jobs:
         continue-on-error: true
   check-secrets:
     runs-on: ubuntu-latest
+    if: ${{ always() }}
+    needs: [test]
 
     steps:
       - name: 📥 Checkout repository
@@ -105,6 +107,9 @@ jobs:
         continue-on-error: true
   listar:
       runs-on: ubuntu-latest
+      if: ${{ always() }}
+      needs: [test]
+      
       steps:
         - name: 📥 Checkout repository
           uses: actions/checkout@v3
