@@ -28,6 +28,11 @@ jobs:
       - name: 🧹 Run linter (flake8)
         run: flake8 app/ tests/
         continue-on-error: true
+
+      - name: listar
+        run: ls -la
+
+
   security:
     runs-on: ubuntu-latest
     if: ${{ always() }}
